@@ -1,37 +1,206 @@
 <div class="menu">
-    <div class="icon" data-content="lottery">
+    <div class="icon" data-content="lottery" (click)="toggleCard('lottery')"> 
         <img src="assets/lottery.png" alt="Lottery">
-        <div class="icon-name">Lottery</div>
+        <div class="icon-name"></div>
     </div>
-    <div class="icon" data-content="mini-games">
+    <div class="icon" data-content="mini-games" (click)="toggleCard('mini-games')">
         <img src="assets/minigames.png" alt="Mini Games">
-        <div class="icon-name">Mini Games</div>
+        <div class="icon-name"></div>
     </div>
-    <div class="icon" data-content="popular">
+    <div class="icon" data-content="popular" (click)="toggleCard('popular')"> 
         <img src="assets/popular.png" alt="Popular">
-        <div class="icon-name">Popular</div>
+        <div class="icon-name"></div>
     </div>
-    <div class="icon" data-content="slots">
+    <div class="icon" data-content="slots" (click)="toggleCard('slots')"> 
         <img src="assets/slots.png" alt="Slots">
-        <div class="icon-name">Slots</div>
+        <div class="icon-name"></div>
     </div>
-    <div class="icon" data-content="pvc">
+    <div class="icon" data-content="pvc" (click)="toggleCard('pvc')"> 
         <img src="assets/pvc.png" alt="PVC">
-        <div class="icon-name">PVC</div>
+        <div class="icon-name"></div>
     </div>
-    <div class="icon" data-content="fishing">
+    <div class="icon" data-content="fishing" (click)="toggleCard('fishing')"> 
         <img src="assets/fishing.png" alt="Fishing">
-        <div class="icon-name">Fishing</div>
+        <div class="icon-name"></div>
     </div>
-    <div class="icon" data-content="casino">
+    <div class="icon" data-content="casino" (click)="toggleCard('casino')"> 
         <img src="assets/casino.png" alt="Casino">
-        <div class="icon-name">Casino</div>
+        <div class="icon-name"></div>
     </div>
-    <div class="icon" data-content="sports">
+    <div class="icon" data-content="sports" (click)="toggleCard('sports')"> 
         <img src="assets/sports.png" alt="Sports">
-        <div class="icon-name">Sports</div>
+        <div class="icon-name"></div>
     </div>
 </div>
-<div class="content" id="content">
-    <!-- Content will be displayed here -->
-</div>
+
+<div class="menu">
+    <!-- for lottery-->
+    <div class="card" [ngClass]="{ 'expanded': expandedCard === 'lottery' }">
+      <div class="card-header">
+        <!-- <img src="assets/lottery.jpg" alt="Lottery" class="card-image"> -->
+        <!-- {{ title }} -->
+      </div>
+      <div class="card-content">
+        <p>{{ description }}</p>
+        <div class="sub-cards" *ngFor="let subCard of subCardsForLottery; let i = index">
+          <div class="sub-card" *ngIf="i % 2 === 0">
+            <div class="sub-card-header">{{ subCard.header }}</div>
+            <div class="sub-card-content">{{ subCard.content }}</div>
+          </div>
+          <div class="sub-card" *ngIf="i % 2 === 1">
+            <div class="sub-card-header">{{ subCardsForLottery[i].header }}</div>
+            <div class="sub-card-content">{{ subCardsForLottery[i].content }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- for mini games-->
+    <div class="card" [ngClass]="{ 'expanded': expandedCard === 'mini-games' }">
+        <div class="card-header">
+          <!-- <img src="assets/lottery.jpg" alt="Lottery" class="card-image"> -->
+          <!-- {{ title }} -->
+        </div>
+        <div class="card-content">
+          <p>{{ description }}</p>
+          <div class="sub-cards" *ngFor="let subCard of subCardsForMiniGames; let i = index">
+            <div class="sub-card" *ngIf="i % 2 === 0">
+              <div class="sub-card-header">{{ subCard.header }}</div>
+              <div class="sub-card-content">{{ subCard.content }}</div>
+            </div>
+            <div class="sub-card" *ngIf="i % 2 === 1">
+              <div class="sub-card-header">{{ subCardsForMiniGames[i].header }}</div>
+              <div class="sub-card-content">{{ subCardsForMiniGames[i].content }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- for popular-->
+      <div class="card" [ngClass]="{ 'expanded': expandedCard === 'popular' }">
+        <div class="card-header">
+          <!-- <img src="assets/lottery.jpg" alt="Lottery" class="card-image"> -->
+          <!-- {{ title }} -->
+        </div>
+        <div class="card-content">
+          <p>{{ description }}</p>
+          <div class="sub-cards" *ngFor="let subCard of subCardsForPopular; let i = index">
+            <div class="sub-card" *ngIf="i % 2 === 0">
+              <div class="sub-card-header">{{ subCard.header }}</div>
+              <div class="sub-card-content">{{ subCard.content }}</div>
+            </div>
+            <div class="sub-card" *ngIf="i % 2 === 1">
+              <div class="sub-card-header">{{ subCardsForPopular[i].header }}</div>
+              <div class="sub-card-content">{{ subCardsForPopular[i].content }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- for PVC-->
+      <div class="card" [ngClass]="{ 'expanded': expandedCard === 'pvc' }">
+        <div class="card-header">
+          <!-- <img src="assets/lottery.jpg" alt="Lottery" class="card-image"> -->
+          <!-- {{ title }} -->
+        </div>
+        <div class="card-content">
+          <p>{{ description }}</p>
+          <div class="sub-cards" *ngFor="let subCard of subCardsForPvc; let i = index">
+            <div class="sub-card" *ngIf="i % 2 === 0">
+              <div class="sub-card-header">{{ subCard.header }}</div>
+              <div class="sub-card-content">{{ subCard.content }}</div>
+            </div>
+            <div class="sub-card" *ngIf="i % 2 === 1">
+              <div class="sub-card-header">{{ subCardsForPvc[i].header }}</div>
+              <div class="sub-card-content">{{ subCardsForPvc[i].content }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- for slots -->
+      <div class="card" [ngClass]="{ 'expanded': expandedCard === 'slots' }">
+        <div class="card-header">
+          <!-- <img src="assets/lottery.jpg" alt="Lottery" class="card-image"> -->
+          <!-- {{ title }} -->
+        </div>
+        <div class="card-content">
+          <p>{{ description }}</p>
+          <div class="sub-cards" *ngFor="let subCard of subCardsForSlots; let i = index">
+            <div class="sub-card" *ngIf="i % 2 === 0">
+              <div class="sub-card-header">{{ subCard.header }}</div>
+              <div class="sub-card-content">{{ subCard.content }}</div>
+            </div>
+            <div class="sub-card" *ngIf="i % 2 === 1">
+              <div class="sub-card-header">{{ subCardsForSlots[i].header }}</div>
+              <div class="sub-card-content">{{ subCardsForSlots[i].content }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- for fishing-->
+
+      <div class="card" [ngClass]="{ 'expanded': expandedCard === 'fishing' }">
+        <div class="card-header">
+          <!-- <img src="assets/lottery.jpg" alt="Lottery" class="card-image"> -->
+          <!-- {{ title }} -->
+        </div>
+        <div class="card-content">
+          <p>{{ description }}</p>
+          <div class="sub-cards" *ngFor="let subCard of subCardsForFishing; let i = index">
+            <div class="sub-card" *ngIf="i % 2 === 0">
+              <div class="sub-card-header">{{ subCard.header }}</div>
+              <div class="sub-card-content">{{ subCard.content }}</div>
+            </div>
+            <div class="sub-card" *ngIf="i % 2 === 1">
+              <div class="sub-card-header">{{ subCardsForFishing[i].header }}</div>
+              <div class="sub-card-content">{{ subCardsForFishing[i].content }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- for casino-->
+      <div class="card" [ngClass]="{ 'expanded': expandedCard === 'casino' }">
+        <div class="card-header">
+          <!-- <img src="assets/lottery.jpg" alt="Lottery" class="card-image"> -->
+          <!-- {{ title }} -->
+        </div>
+        <div class="card-content">
+          <p>{{ description }}</p>
+          <div class="sub-cards" *ngFor="let subCard of subCardsForCasino; let i = index">
+            <div class="sub-card" *ngIf="i % 2 === 0">
+              <div class="sub-card-header">{{ subCard.header }}</div>
+              <div class="sub-card-content">{{ subCard.content }}</div>
+            </div>
+            <div class="sub-card" *ngIf="i % 2 === 1">
+              <div class="sub-card-header">{{ subCardsForCasino[i].header }}</div>
+              <div class="sub-card-content">{{ subCardsForCasino[i].content }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- for sports-->
+
+      <div class="card" [ngClass]="{ 'expanded': expandedCard === 'sports' }">
+        <div class="card-header">
+          <!-- <img src="assets/lottery.jpg" alt="Lottery" class="card-image"> -->
+          <!-- {{ title }} -->
+        </div>
+        <div class="card-content">
+          <p>{{ description }}</p>
+          <div class="sub-cards" *ngFor="let subCard of subCardsForSports; let i = index">
+            <div class="sub-card" *ngIf="i % 2 === 0">
+              <div class="sub-card-header">{{ subCard.header }}</div>
+              <div class="sub-card-content">{{ subCard.content }}</div>
+            </div>
+            <div class="sub-card" *ngIf="i % 2 === 1">
+              <div class="sub-card-header">{{ subCardsForSports[i].header }}</div>
+              <div class="sub-card-content">{{ subCardsForSports[i].content }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
