@@ -1,7 +1,7 @@
 <!-- If no user is logged in -->
 <div *ngIf="!isCustomerLoggedIn && !isAdminLoggedIn">
   <mat-toolbar color="primary" class="navbar">
-    <span class="navbar-brand">E-Commerce</span>
+    <span class="navbar-brand">82-Lottery</span>
     <span class="spacer"></span>
     <button mat-button routerLink="/order" routerLinkActive="active">Track Order</button>
     <button mat-button routerLink="/signup" routerLinkActive="active">Register</button>
@@ -39,7 +39,9 @@
   </mat-toolbar>
 </div>
 
+
 <router-outlet></router-outlet>
+
 
 <app-home></app-home>
 

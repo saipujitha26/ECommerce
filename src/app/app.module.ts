@@ -13,6 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
+import { NewGameComponent } from './components/new-game/new-game.component';
+import { CarousalComponent } from './carousal/carousal.component';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { HomeComponent } from './home/home.component';
     SignupComponent,
     ForgotPasswordComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    NewGameComponent,
+    CarousalComponent
   ],
   imports: [
     BrowserModule,

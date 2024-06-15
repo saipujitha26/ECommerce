@@ -1,59 +1,49 @@
-.content {
-    padding: 20px;
-    text-align: center;
-}
-
-/* Footer styles */
 .footer {
     background-color: #333;
     color: #fff;
     text-align: center;
-    padding: 5px 0;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-}
-
-.footer-content {
+    padding: 10px 0;
+  }
+  
+  .footer-content {
     display: flex;
     justify-content: space-around;
-    padding: 5px 20px; /* Reduced padding */
-}
-
-.footer-section {
+    padding: 20px 50px;
+  }
+  
+  .footer-section {
     flex: 1;
-    padding: 5px; /* Reduced padding */
-}
-
-.footer-section h2 {
-    margin-bottom: 5px; /* Reduced margin */
-}
-
-.footer-section ul {
+    padding: 10px;
+  }
+  
+  .footer-section h2 {
+    margin-bottom: 10px;
+  }
+  
+  .footer-section ul {
     list-style: none;
     padding: 0;
-    margin: 0; /* Removed margin */
-}
-
-.footer-section ul li {
-    margin-bottom: 2px; /* Reduced margin */
-}
-
-.footer-section ul li a {
+  }
+  
+  .footer-section ul li {
+    margin-bottom: 5px;
+  }
+  
+  .footer-section ul li a {
     color: #fff;
     text-decoration: none;
-}
-
-.footer-section ul li a:hover {
+  }
+  
+  .footer-section ul li a:hover {
     text-decoration: underline;
-}
-
-.footer-bottom {
+  }
+  
+  .footer-bottom {
     background-color: #222;
     color: #ccc;
-    padding: 5px 0; /* Reduced padding */
-}
-
-.footer-section p {
+    padding: 10px 0;
+  }
+  
+  .footer-section p {
     margin: 0;
-}
+  }
