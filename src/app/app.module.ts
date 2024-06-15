@@ -15,6 +15,8 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { NewGameComponent } from './components/new-game/new-game.component';
 import { CarousalComponent } from './carousal/carousal.component';
+import { HomeMenuComponent } from './home-menu/home-menu.component';
+import { HomeMenuExpandComponent } from './home-menu-expand/home-menu-expand.component';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import { CarousalComponent } from './carousal/carousal.component';
     FooterComponent,
     HomeComponent,
     NewGameComponent,
-    CarousalComponent
+    CarousalComponent,
+    HomeMenuComponent,
+    HomeMenuExpandComponent
   ],
   imports: [
     BrowserModule,
