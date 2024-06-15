@@ -5,59 +5,62 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './home-menu.component.html',
   styleUrls: ['./home-menu.component.css']
 })
-export class HomeMenuComponent implements OnInit {
+export class HomeMenuComponent {
 
-  ngOnInit() {
-    const icons = document.querySelectorAll('.icon');
-    const contentDiv = document.getElementById('content');
+ 
+  title = 'Lottery';
+  description = 'Content about Lottery...';
 
-    icons.forEach(icon => {
-      icon.addEventListener('click', () => {
-        const content = icon.getAttribute('data-content');
-        if (content) {
-          this.displayContent(content, contentDiv);
-        } else {
-          this.displayContent('default', contentDiv); // or handle the null case appropriately
-        }
-      });
-    });
+  subCardsForLottery = [
+    { header: 'Lottery', content: 'Content for lottery' },
+    { header: 'Lottery-2', content: 'Content for lottery' },
+  ];
+  subCardsForMiniGames = [
+    { header: 'Mini games', content: 'Content for mini games' },
+    { header: 'Mini games-1', content: 'Content for mini games -2' },
+    { header: 'Mini games-2', content: 'Content for mini games -3' },
+  ];
 
-    // Display default content
-    this.displayContent('lottery', contentDiv);
-  }
+  subCardsForPopular = [
+    { header: 'popular', content: 'Content for popular' },
+    { header: 'popular-2', content: 'Content for popular -2' },
+    { header: 'popular-3', content: 'Content forpopular -3' },
+    { header: 'popular-4', content: 'Content forpopular -4' }
+  ];
 
-  displayContent(content: string, contentDiv: HTMLElement | null) {
-    if (!contentDiv) return;
+  subCardsForPvc = [
+    { header: 'pvc', content: 'Content for pvc' },
+  ];
 
-    let contentText = '';
-    switch (content) {
-      case 'lottery':
-        contentText = 'This is the Lottery section.';
-        break;
-      case 'mini-games':
-        contentText = 'This is the Mini Games section.';
-        break;
-      case 'popular':
-        contentText = 'This is the Popular section.';
-        break;
-      case 'slots':
-        contentText = 'This is the Slots section.';
-        break;
-      case 'pvc':
-        contentText = 'This is the PVC section.';
-        break;
-      case 'fishing':
-        contentText = 'This is the Fishing section.';
-        break;
-      case 'casino':
-        contentText = 'This is the Casino section.';
-        break;
-      case 'sports':
-        contentText = 'This is the Sports section.';
-        break;
-      default:
-        contentText = 'Click an icon to display content.';
-    }
-    contentDiv.innerHTML = contentText;
+  subCardsForSlots = [
+    { header: 'slots', content: 'Content for slots' },
+    { header: 'slots-2', content: 'Content for slots -2' },
+    { header: 'slots-3', content: 'Content for slots -3' },
+    { header: 'slots-4', content: 'Content for slots -4' }
+  ];
+
+  subCardsForFishing = [
+    { header: 'fishing', content: 'Content for fishing' },
+    { header: 'fishing-2', content: 'Content for fishing -2' },
+    { header: 'fishing-3', content: 'Content for fishing -3' },
+    { header: 'fishing-4', content: 'Content for fishing -4' }
+  ];
+
+  subCardsForSports = [
+    { header: 'Sport', content: 'Content for Sport' },
+    { header: 'Sport-2', content: 'Content for Sport -2' }
+  ];
+
+  subCardsForCasino = [
+    { header: 'Casino', content: 'Content for Casino' },
+    { header: 'Casino-2', content: 'Content for Casino -2' },
+    { header: 'Casino-3', content: 'Content for Casino -3' }
+  ];
+
+  
+  expandedCard: string | null = null;
+
+  toggleCard(card: string) {
+    this.expandedCard = this.expandedCard === card ? null : card;
   }
 }
