@@ -17,6 +17,7 @@ import { NewGameComponent } from './components/new-game/new-game.component';
 import { CarousalComponent } from './carousal/carousal.component';
 import { HomeMenuComponent } from './home-menu/home-menu.component';
 import { HomeMenuExpandComponent } from './home-menu-expand/home-menu-expand.component';
+import { TopWinnersComponent } from './top-winners/top-winners.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { HomeMenuExpandComponent } from './home-menu-expand/home-menu-expand.com
     NewGameComponent,
     CarousalComponent,
     HomeMenuComponent,
-    HomeMenuExpandComponent
+    HomeMenuExpandComponent,
+    TopWinnersComponent
   ],
   imports: [
     BrowserModule,
