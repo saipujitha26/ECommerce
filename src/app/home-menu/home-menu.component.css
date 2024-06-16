@@ -93,8 +93,9 @@ body {
   }
   
   .card-content {
-    padding: 10px;
+    /* padding: 10px; */
     display: none;
+    width: 100%;
   }
   
   .card.expanded .card-content {
@@ -109,7 +110,8 @@ body {
   }
   
   .sub-card {
-    width: calc(50% - 5px); 
+    width: calc(100% - 5px); 
+    /* width: 100%; */
     background-color: #e0e0e0;
     border: 1px solid #ccc;
     border-radius: 8px;
