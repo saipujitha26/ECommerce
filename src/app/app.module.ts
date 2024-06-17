@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { DemoAngularMaterialModule } from './DemoAngularMaterailModule';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
@@ -18,6 +19,8 @@ import { CarousalComponent } from './carousal/carousal.component';
 import { HomeMenuComponent } from './home-menu/home-menu.component';
 import { HomeMenuExpandComponent } from './home-menu-expand/home-menu-expand.component';
 import { TopWinnersComponent } from './top-winners/top-winners.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { MessageBarComponent } from './message-bar/message-bar.component';
 
 
 @NgModule({
@@ -32,7 +35,9 @@ import { TopWinnersComponent } from './top-winners/top-winners.component';
     CarousalComponent,
     HomeMenuComponent,
     HomeMenuExpandComponent,
-    TopWinnersComponent
+    TopWinnersComponent,
+    NavBarComponent,
+    MessageBarComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +46,9 @@ import { TopWinnersComponent } from './top-winners/top-winners.component';
     DemoAngularMaterialModule,
     FormsModule,
     MatSnackBarModule,
-    ReactiveFormsModule,HttpClientModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,57 @@
+/* Global styles */
+
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    overflow: hidden;
+}
+
+body, html {
+    padding: 0;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    background: linear-gradient(90deg, #8B0000, hsl(9, 65%, 44%)); /* Dark red to light red gradient */
+    /* background: linear-gradient(90deg, #ee0d07, #ef564bf7); */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar-brand {
+    font-size: 20px;
+    font-weight: 600;
+    margin-right: 16px;
+    color: white;
+}
+
+.spacer {
+    flex: 1;
+}
+
+button {
+    color: white;
+    text-transform: uppercase;
+    margin-left: 8px;
+}
+
+button-active {
+    font-weight: 600;
+}
+
+.main-content {
+    margin-top: 64px; /* Adjust this value if your toolbar has a different height */
+    height: calc(100% - 64px); /* Adjust this value if your toolbar has a different height */
+    overflow-y: auto;
+}
+
+
+.mat-toolbar.mat-primary {
+    background: linear-gradient(90deg, #ee0d07, #ef564bf7);
+    color: #fff;
+}

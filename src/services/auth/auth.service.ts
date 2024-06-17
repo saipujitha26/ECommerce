@@ -2,13 +2,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 
-const BASIC_URL = "http://localhost:8081"
+const BASIC_URL = "http://localhost:8081";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  userStorageService: any;
+  private isLoggedIn: boolean = false;
 
   constructor(private http: HttpClient) { }
 
@@ -27,14 +27,21 @@ export class AuthService {
           const token = authHeader.substring(7);
           const user = res.body;
           if (token && user) {
-            this.userStorageService.saveToken(token);
-            this.userStorageService.saveUser(user);
+            this.isLoggedIn = true;
             return true;
           }
         }
         return false;
       })
     );
+  }
+
+  logout(): void {
+    this.isLoggedIn = false;
+  }
+
+  isAuthenticated(): boolean {
+    return this.isLoggedIn;
   }
 
   forgotPassword(email: string): Observable<any> {
