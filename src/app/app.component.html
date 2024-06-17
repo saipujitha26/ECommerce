@@ -1,16 +1,15 @@
 <!-- If no user is logged in -->
-<div *ngIf="!isCustomerLoggedIn && !isAdminLoggedIn">
+<!-- <div *ngIf="!isCustomerLoggedIn && !isAdminLoggedIn">
   <mat-toolbar color="primary" class="navbar">
     <span class="navbar-brand">82-Lottery</span>
     <span class="spacer"></span>
-    <button mat-button routerLink="/order" routerLinkActive="active">Track Order</button>
     <button mat-button routerLink="/signup" routerLinkActive="active">Register</button>
     <button mat-button routerLink="/login" routerLinkActive="active">Login</button>
   </mat-toolbar>
-</div>
+</div> -->
 
 <!-- If an admin is logged in -->
-<div *ngIf="isAdminLoggedIn">
+<!-- <div *ngIf="isAdminLoggedIn">
   <mat-toolbar color="primary" class="navbar">
     <span class="navbar-brand">E-Commerce</span>
     <span class="spacer"></span>
@@ -23,10 +22,10 @@
     <button mat-button routerLink="/admin/coupons" routerLinkActive="active">Coupons</button>
     <button mat-button routerLinkActive="active" (click)="logout()">Logout</button>
   </mat-toolbar>
-</div>
+</div> -->
 
 <!-- If a customer is logged in -->
-<div *ngIf="isCustomerLoggedIn">
+<!-- <div *ngIf="isCustomerLoggedIn">
   <mat-toolbar color="primary" class="navbar">
     <span class="navbar-brand">E-Commerce</span>
     <span class="spacer"></span>
@@ -37,8 +36,9 @@
     <button mat-button routerLink="/customer/profile" routerLinkActive="active">Profile</button>
     <button mat-button routerLinkActive="active" (click)="logout()">Logout</button>
   </mat-toolbar>
-</div>
+</div> -->
 
+<app-nav-bar></app-nav-bar>
 
 <router-outlet></router-outlet>
 

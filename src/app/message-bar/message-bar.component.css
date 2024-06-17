@@ -1,0 +1,48 @@
+/* .message-bar {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .message-summary {
+    flex: 1;
+  }
+  
+  button {
+    margin-left: 10px;
+  }
+   */
+
+
+   .message-bar {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: lightyellow; /* Static light yellow background */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden; /* Prevent overflow of sliding messages */
+    position: relative;
+  }
+  
+  .message-summary {
+    flex: 1;
+    position: relative;
+    height: 1.5em; /* Adjust based on your text height */
+    overflow: hidden;
+  }
+  
+  .message-summary div {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+  }
+  
+  button {
+    margin-left: 10px;
+    background-color: rgb(242, 45, 48);
+  }
+  
