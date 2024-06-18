@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { DemoAngularMaterialModule } from './DemoAngularMaterailModule';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
@@ -18,6 +19,13 @@ import { CarousalComponent } from './carousal/carousal.component';
 import { HomeMenuComponent } from './home-menu/home-menu.component';
 import { HomeMenuExpandComponent } from './home-menu-expand/home-menu-expand.component';
 import { TopWinnersComponent } from './top-winners/top-winners.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { MessageBarComponent } from './message-bar/message-bar.component';
+import { WinGoComponent } from './win-go/win-go.component';
+import { TimerComponent } from './timer/timer.component';
+
+import { AuthService } from 'src/services/auth/auth.service';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -32,7 +40,11 @@ import { TopWinnersComponent } from './top-winners/top-winners.component';
     CarousalComponent,
     HomeMenuComponent,
     HomeMenuExpandComponent,
-    TopWinnersComponent
+    TopWinnersComponent,
+    NavBarComponent,
+    MessageBarComponent,
+    WinGoComponent,
+    TimerComponent
   ],
   imports: [
     BrowserModule,
@@ -41,9 +53,12 @@ import { TopWinnersComponent } from './top-winners/top-winners.component';
     DemoAngularMaterialModule,
     FormsModule,
     MatSnackBarModule,
-    ReactiveFormsModule,HttpClientModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    RouterModule.forRoot([])
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

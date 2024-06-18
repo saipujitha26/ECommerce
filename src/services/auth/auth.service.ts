@@ -1,40 +1,72 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { catchError, map, Observable, throwError } from 'rxjs';
+import { User } from 'src/app/classes/user';
 
-const BASIC_URL = "http://localhost:8081"
+
+const BASIC_URL = "http://localhost:8001";
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  userStorageService: any;
+  private isLoggedIn: boolean = false;
+  // apiUrl: string = "http://localhost:8001";
 
   constructor(private http: HttpClient) { }
 
-  register(signupRequest: any): Observable<any> {
-    return this.http.post(BASIC_URL + "/sign-up", signupRequest);
+  register(user: any): Observable<any> {
+    return this.http.post<any>(`${BASIC_URL}/user/add`, user, { responseType: 'text' as 'json' })
+      .pipe(
+        map(response => {
+          try {
+            return JSON.parse(response); // If it's JSON, parse it
+          } catch {
+            return response; // If it's plain text, return it as is
+          }
+        }),
+        catchError(this.handleError)
+      );
   }
 
-  login(username: string, password: string): any {
-    const headers = new HttpHeaders().set('Content-Type', 'application/json');
-    const body = { username, password };
+  private handleError(error: HttpErrorResponse) {
+    let errorMessage = 'Unknown error!';
+    if (error.error instanceof ErrorEvent) {
+      // Client-side error
+      errorMessage = `Error: ${error.error.message}`;
+    } else {
+      // Server-side error
+      if (error.status === 200 && typeof error.error === 'string') {
+        errorMessage = error.error;
+      } else {
+        errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+      }
+    }
+    return throwError(() => new Error(errorMessage));
+  }
 
-    return this.http.post<any>(BASIC_URL + '/authenticate', body, { headers, observe: 'response' }).pipe(
-      map(res => {
-        const authHeader = res.headers.get('authorization');
-        if (authHeader) {
-          const token = authHeader.substring(7);
-          const user = res.body;
-          if (token && user) {
-            this.userStorageService.saveToken(token);
-            this.userStorageService.saveUser(user);
-            return true;
-          }
-        }
-        return false;
-      })
-    );
+
+  doAuth(user : User){
+       
+    return this.http.post("http://localhost:8001/token", user, {responseType: "text"});
+  }
+
+  getUserDetails(paramValue: string){
+
+    const token = localStorage.getItem("Token");
+    const email = localStorage.getItem("auth-user");
+    const header=new HttpHeaders({"Authorization":"Bearer "+token});
+    return this.http.get(`http://localhost:8001/user/email/?email=${paramValue}`,{headers: header}  )
+  }
+
+
+  logout(): void {
+    this.isLoggedIn = false;
+  }
+
+  isAuthenticated(): boolean {
+    return this.isLoggedIn;
   }
 
   forgotPassword(email: string): Observable<any> {
@@ -44,4 +76,6 @@ export class AuthService {
   resetPassword(email: string, confirmationCode: string, newPassword: string): Observable<any> {
     return this.http.post(BASIC_URL + "/reset-password", { email, confirmationCode, newPassword });
   }
+
+
 }
