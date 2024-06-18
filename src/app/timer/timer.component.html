@@ -1,0 +1,16 @@
+<div class="timer-content">
+  <div class="left-section">
+    <button class="how-to-play-btn">How to Play</button>
+    <div class="game-name">{{ gameInfo }}</div>
+    <div class="balls">
+      <div class="ball" *ngFor="let number of [1, 2, 3, 4, 5]">{{ number }}</div>
+    </div>
+  </div>
+  <div class="right-section">
+    <div class="timer-label">Time Remaining</div>
+    <div class="timer">{{ formatTime(timeLeft) }}</div>
+  </div>
+</div>
+<div *ngIf="timeLeft <= 5" class="reminder-card">
+  Hurry up! Only {{ timeLeft }} seconds left!
+</div>

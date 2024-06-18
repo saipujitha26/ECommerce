@@ -4,13 +4,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 120vh;
+    height: 73vh;
+    padding: 35px;
 }
 
 mat-card {
     max-width: 400px;
     width: 100%;
-    padding: 20px;
+    padding: 29px;
 
     @media screen and (max-width: 500px) {
         max-width: 90%;

@@ -1,0 +1,228 @@
+/* win-go.component.css */
+.win-go-container {
+  padding: 20px;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.wallet-balance {
+  margin-bottom: 20px;
+  font-size: 18px;
+
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  border-radius: 40%;
+  gap: 15%;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.deposit-button {
+  background-color: #4caf50; /* Green */
+  color: white;
+  border-radius: .53333rem;
+}
+
+.withdraw-button {
+  background-color: #f44336; /* Red */
+  color: white;
+  border-radius: .53333rem;
+}
+
+.deposit-button:hover {
+  background-color: #45a049; /* Darker green */
+}
+
+.withdraw-button:hover {
+  background-color: #e53935; /* Darker red */
+}
+
+.icons-bar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #f0f0f0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  height: 10vh;
+}
+
+.icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.timer-icon {
+  border-radius: 50%;
+  object-fit: contain;
+  height: 40px;
+  width: 40px;
+  margin-top: 7%;
+}
+
+.icon-name {
+  margin-top: 5px; /* Adjust spacing between icon and text */
+  text-align: center; /* Center the text */
+}
+
+.icon.selected {
+  background-color: #ff6347;
+  height: 120%;
+  width: 20%;
+  border-radius: 10%;
+}
+
+/* timer-content.component.css */
+.timer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.left-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.right-section {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+}
+
+.how-to-play-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.how-to-play-btn:hover {
+  background-color: #0056b3;
+}
+
+.game-name {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.balls {
+  display: flex;
+  gap: 5px;
+}
+
+.ball {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 50%;
+  background-color: #ddd;
+  text-align: center;
+  font-size: 16px;
+}
+
+
+.color-buttons-bar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #e0e0e0;
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.color-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.green {
+  background-color: #4caf50; /* Green */
+  color: white;
+}
+
+.violet {
+  background-color: #8a2be2; /* Violet */
+  color: white;
+}
+
+.red {
+  background-color: #f44336; /* Red */
+  color: white;
+}
+
+.green:hover {
+  background-color: #45a049; /* Darker green */
+}
+
+.violet:hover {
+  background-color: #7a1ea1; /* Darker violet */
+}
+
+.red:hover {
+  background-color: #e53935; /* Darker red */
+}
+
+.number-balls-bar {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  justify-items: center;
+  background-color: #f0f0f0;
+  padding: 20px; /* Increased padding to accommodate larger balls */
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.ball {
+  width: 50px; /* Increased width */
+  height: 50px; /* Increased height */
+  line-height: 50px; /* Match height for centering text */
+  border-radius: 50%;
+  margin: 0 5px;
+  font-size: 20px; /* Increased font size */
+  text-align: center;
+}
+
+.ball.green {
+  background-color: #4caf50;
+}
+
+.ball.violet {
+  background-color: #8a2be2;
+}
+
+.ball.red {
+  background-color: #f44336;
+}

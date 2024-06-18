@@ -44,7 +44,7 @@
         <p>{{ description }}</p>
         <div class="sub-cards" *ngFor="let subCard of subCardsForLottery; let i = index">
           <div class="sub-card" *ngIf="i % 2 === 0">
-            <div class="sub-card-header">{{ subCard.header }}</div>
+            <div class="sub-card-header" routerLink="/win-go">{{ subCard.header }}</div>
             <div class="sub-card-content">{{ subCard.content }}</div>
           </div>
           <div class="sub-card" *ngIf="i % 2 === 1">
