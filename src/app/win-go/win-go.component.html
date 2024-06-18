@@ -1,0 +1,41 @@
+<div class="win-go-container">
+  <h2>Win Go</h2>
+  <div class="wallet-balance">
+    <p>Wallet Balance: {{ walletBalance | currency }}</p>
+  </div>
+  <div class="buttons">
+    <button class="deposit-button" (click)="deposit()">Deposit</button>
+    <button class="withdraw-button" (click)="withdraw()">Withdraw</button>
+  </div>
+</div>
+
+<div class="icons-bar">
+  <div class="icon" (click)="selectGame('1')" [ngClass]="{ 'selected': selectedGame === '1' }">
+    <img src="assets/timer.png" alt="Timer Icon" class="timer-icon">
+    <div class="icon-name">Win Go <br>1min</div>
+  </div>
+  <div class="icon" (click)="selectGame('3')" [ngClass]="{ 'selected': selectedGame === '3' }">
+    <img src="assets/timer.png" alt="Timer Icon" class="timer-icon">
+    <div class="icon-name">Win Go<br> 3min</div>
+  </div>
+  <div class="icon" (click)="selectGame('5')" [ngClass]="{ 'selected': selectedGame === '5' }">
+    <img src="assets/timer.png" alt="Timer Icon" class="timer-icon">
+    <div class="icon-name">Win Go <br>5min</div>
+  </div>
+  <div class="icon" (click)="selectGame('10')" [ngClass]="{ 'selected': selectedGame === '10' }">
+    <img src="assets/timer.png" alt="Timer Icon" class="timer-icon">
+    <div class="icon-name">Win Go <br>10min</div>
+  </div>
+</div>
+
+<app-timer *ngIf="selectedGame" [duration]="selectedGameDuration" [gameInfo]="selectedGameInfo"></app-timer>
+
+<div class="color-buttons-bar">
+  <button class="color-button green">Green</button>
+  <button class="color-button violet">Violet</button>
+  <button class="color-button red">Red</button>
+</div>
+
+<div class="number-balls-bar">
+  <div class="ball" *ngFor="let number of numbers" [ngClass]="getBallClass(number)">{{ number }}</div>
+</div>

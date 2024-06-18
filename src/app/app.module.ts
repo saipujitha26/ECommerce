@@ -21,6 +21,8 @@ import { HomeMenuExpandComponent } from './home-menu-expand/home-menu-expand.com
 import { TopWinnersComponent } from './top-winners/top-winners.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { MessageBarComponent } from './message-bar/message-bar.component';
+import { WinGoComponent } from './win-go/win-go.component';
+import { TimerComponent } from './timer/timer.component';
 
 
 @NgModule({
@@ -37,7 +39,9 @@ import { MessageBarComponent } from './message-bar/message-bar.component';
     HomeMenuExpandComponent,
     TopWinnersComponent,
     NavBarComponent,
-    MessageBarComponent
+    MessageBarComponent,
+    WinGoComponent,
+    TimerComponent
   ],
   imports: [
     BrowserModule,
