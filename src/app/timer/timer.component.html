@@ -11,3 +11,6 @@
     <div class="timer">{{ formatTime(timeLeft) }}</div>
   </div>
 </div>
+<div *ngIf="timeLeft <= 5" class="reminder-card">
+  Hurry up! Only {{ timeLeft }} seconds left!
+</div>

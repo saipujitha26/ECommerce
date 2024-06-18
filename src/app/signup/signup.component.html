@@ -5,16 +5,16 @@
       <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
         <mat-form-field appearance="outline">
           <mat-label>Name</mat-label>
-          <input matInput formControlName="name" placeholder="Name" required>
-          <mat-error *ngIf="signupForm.get('name')!.invalid && signupForm.get('name')!.touched">
+          <input matInput formControlName="userName" placeholder="Name" required>
+          <mat-error *ngIf="signupForm.get('userName')!.invalid && signupForm.get('userName')!.touched">
             Please enter a valid name.
           </mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
           <mat-label>Email</mat-label>
-          <input matInput formControlName="email" placeholder="Email" required>
-          <mat-error *ngIf="signupForm.get('email')!.invalid && signupForm.get('email')!.touched">
+          <input matInput formControlName="userEmail" placeholder="Email" required>
+          <mat-error *ngIf="signupForm.get('userEmail')!.invalid && signupForm.get('userEmail')!.touched">
             Please enter a valid email.
           </mat-error>
         </mat-form-field>
@@ -24,18 +24,19 @@
           <input
             matInput
             [type]="hidePassword ? 'password' : 'text'"
-            formControlName="password"
+            formControlName="userPassword"
             placeholder="Password"
             required>
           <button mat-icon-button matSuffix type="button" (click)="togglePasswordVisibility()">
             <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
           </button>
-          <mat-error *ngIf="signupForm.get('password')!.invalid && signupForm.get('password')!.touched">
+          <mat-error *ngIf="signupForm.get('userPassword')!.invalid && signupForm.get('userPassword')!.touched">
             Please enter a valid password.
           </mat-error>
         </mat-form-field>
 
-        <mat-form-field appearance="outline">
+
+        <!-- <mat-form-field appearance="outline">
           <mat-label>Confirm Password</mat-label>
           <input
             matInput
@@ -48,6 +49,14 @@
           </button>
           <mat-error *ngIf="signupForm.get('confirmPassword')!.invalid && signupForm.get('confirmPassword')!.touched">
             Please enter a valid confirm password.
+          </mat-error>
+        </mat-form-field> -->
+
+        <mat-form-field appearance="outline">
+          <mat-label>Mobile Number</mat-label>
+          <input matInput formControlName="userMobile" placeholder="Mobile Number" required>
+          <mat-error *ngIf="signupForm.get('userMobile')!.invalid && signupForm.get('userMobile')!.touched">
+            Please enter a valid Mobile Number.
           </mat-error>
         </mat-form-field>
 

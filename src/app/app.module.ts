@@ -24,6 +24,9 @@ import { MessageBarComponent } from './message-bar/message-bar.component';
 import { WinGoComponent } from './win-go/win-go.component';
 import { TimerComponent } from './timer/timer.component';
 
+import { AuthService } from 'src/services/auth/auth.service';
+import { RouterModule } from '@angular/router';
+
 
 @NgModule({
   declarations: [
@@ -52,9 +55,10 @@ import { TimerComponent } from './timer/timer.component';
     MatSnackBarModule,
     ReactiveFormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    RouterModule.forRoot([])
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

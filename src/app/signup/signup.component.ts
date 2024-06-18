@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/services/auth/auth.service';
+import { User } from '../classes/user';
 
 
 @Component({
@@ -13,6 +14,7 @@ import { AuthService } from 'src/services/auth/auth.service';
 export class SignupComponent implements OnInit {
   signupForm!: FormGroup;
   hidePassword = true;
+  user : User = new User();
 
   constructor(
     private fb: FormBuilder,
@@ -23,10 +25,11 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.signupForm = this.fb.group({
-      name: [null, [Validators.required]],
-      email: [null, [Validators.required, Validators.email]],
-      password: [null, [Validators.required, Validators.minLength(6)]],
-      confirmPassword: [null, [Validators.required, Validators.minLength(6)]]
+      userName: [null, [Validators.required]],
+      userEmail: [null, [Validators.required, Validators.email]],
+      userPassword: [null, [Validators.required, Validators.minLength(6)]],
+      // confirmPassword: [null, [Validators.required, Validators.minLength(6)]],
+      userMobile: [null, [Validators.required, Validators.minLength(10), Validators.maxLength(10)]]
     });
   }
 
@@ -34,26 +37,32 @@ export class SignupComponent implements OnInit {
     this.hidePassword = !this.hidePassword;
   }
 
+
+
   onSubmit(): void {
-    const password = this.signupForm.get('password')?.value;
-    const confirmPassword = this.signupForm.get('confirmPassword')?.value;
 
-    if (password !== confirmPassword) {
-      this.snackBar.open('Passwords do not match.', 'Close', {
-        duration: 5000,
-        panelClass: 'error-snackbar'
-      });
-      return;
-    }
 
-    this.authService.register(this.signupForm.value).subscribe(
-      (response) => {
-        this.snackBar.open('Sign up successful!', 'Close', { duration: 5000 });
-        this.router.navigateByUrl('/login');
+    this.authService.register(this.signupForm.value).subscribe({
+      next: (response) => {
+        if (typeof response === 'string' && response === 'User Already Exists') {
+          this.snackBar.open('User already exists. Please use a different email.', 'Close', {
+            duration: 3000,
+          });
+        } else {
+          console.log('User added successfully', response);
+          this.snackBar.open('User added successfully', 'Close', {
+            duration: 3000,
+          });
+          this.router.navigateByUrl('/login');
+        }
       },
-     (error) => {
-        this.snackBar.open('Sign up failed. Please try again.', 'Close', {duration: 5000,panelClass: 'error-snackbar'});
+      error: (error) => {
+        console.error('An error occurred:', error.message);
+        this.snackBar.open('An error occurred. Please try again.', 'Close', {
+          duration: 3000,
+        });
       }
-    )
+    });
+
   }
 }
